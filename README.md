@@ -2,7 +2,7 @@
 A python relay to allow Winamp POST and Mastodon interoperability.
 
 ## DISCLAIMER
-This isn't finished, has some niche behavior, ***and also doesn't support HTTPS yet***
+This isn't finished, has some niche behavior, ***and also doesn't support HTTPS yet.***
 Use this only in a controlled environment for the time being, as it was written in the 
 span of like an hour. 
 
