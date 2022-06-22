@@ -1,0 +1,17 @@
+http://server:port/?artist=[%artist%]&track=$if2(%title%,$filepart(%filename%))$IfStrEqual2(%length_seconds%,0,&type=stream&streamUrl=%filename%,$iflonger(%album%,0,&album=%album%&type=local,&type=tracker))
+
+This is kind of a mess, so let's run through what's going on here;
+
+First is the hyper basic default for Winamp's ATF system. It simply gets the artist and track name from metadata,
+or if it can't, uses a part of the file name. 
+
+Next is a bit messier. Streams have an infinite duration, but that duration is set to '0' internally.
+If it's 0 and playing content, we assume it's a stream and fetch the stream URL.
+
+If it's longer than that, it's either a local file or tracker file. 
+
+Every tracker file I've ever seen lacks an 'Album' field. So assuming you're tagging your stuff, 
+You can abuse that fact and identify said file as a tracker file without checking extensions. 
+
+If you're using vorbis comments and this isn't working as expected for you because they aren't being read, Sorry.
+I'll likely be changing this to check the decoder but until that occurs I have nothing for ya right now.
